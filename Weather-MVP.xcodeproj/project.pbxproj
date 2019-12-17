@@ -21,7 +21,6 @@
 		8F99004F23A9345A0012BF88 /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F99004E23A9345A0012BF88 /* UserDefaultService.swift */; };
 		8FBED0F423A803BC00C132D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBED0F323A803BC00C132D9 /* AppDelegate.swift */; };
 		8FBED0F623A803BC00C132D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBED0F523A803BC00C132D9 /* SceneDelegate.swift */; };
-		8FBED0F823A803BC00C132D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBED0F723A803BC00C132D9 /* ViewController.swift */; };
 		8FBED0FB23A803BC00C132D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FBED0F923A803BC00C132D9 /* Main.storyboard */; };
 		8FBED0FD23A803BE00C132D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FBED0FC23A803BE00C132D9 /* Assets.xcassets */; };
 		8FBED10023A803BE00C132D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FBED0FE23A803BE00C132D9 /* LaunchScreen.storyboard */; };
@@ -45,7 +44,6 @@
 		8FBED0F023A803BC00C132D9 /* Weather-MVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather-MVP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FBED0F323A803BC00C132D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FBED0F523A803BC00C132D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8FBED0F723A803BC00C132D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8FBED0FA23A803BC00C132D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8FBED0FC23A803BE00C132D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FBED0FF23A803BE00C132D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 				8FBED10923A8099B00C132D9 /* common */,
 				8FBED0F323A803BC00C132D9 /* AppDelegate.swift */,
 				8FBED0F523A803BC00C132D9 /* SceneDelegate.swift */,
-				8FBED0F723A803BC00C132D9 /* ViewController.swift */,
 				8FBED0F923A803BC00C132D9 /* Main.storyboard */,
 				8FBED0FC23A803BE00C132D9 /* Assets.xcassets */,
 				8FBED0FE23A803BE00C132D9 /* LaunchScreen.storyboard */,
@@ -225,7 +222,6 @@
 				8F99004723A8D9290012BF88 /* ApiError.swift in Sources */,
 				8F99004523A8D9290012BF88 /* UIViewController+Extension.swift in Sources */,
 				8FBED10C23A80A3600C132D9 /* WeatherPresenter.swift in Sources */,
-				8FBED0F823A803BC00C132D9 /* ViewController.swift in Sources */,
 				8F99004423A8D9290012BF88 /* UIView+Extension.swift in Sources */,
 				8F99004923A8D9290012BF88 /* UrlConstants.swift in Sources */,
 				8F99004A23A8D9290012BF88 /* WeatherService.swift in Sources */,
