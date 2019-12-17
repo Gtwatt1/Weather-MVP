@@ -50,8 +50,10 @@ struct Weather : Codable {
 }
 
 
-enum WeatherType{
-    case rainy, sunny, cloudy
+enum WeatherType : String{
+    case rainy = "rain"
+    case sunny = "partlysunny"
+    case cloudy = "clear"
 }
 
 
