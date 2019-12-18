@@ -10,7 +10,7 @@
         <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Weather_MVP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="455" width="414" height="407"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherCell" rowHeight="72" id="I1q-cf-0mG" customClass="WeatherCell" customModule="Weather" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherCell" rowHeight="72" id="I1q-cf-0mG" customClass="WeatherCell" customModule="Weather_MVP" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I1q-cf-0mG" id="k1t-Hr-HYJ">
@@ -200,15 +200,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="cityLabel" destination="rga-O4-X4M" id="eLH-ev-Yfb"/>
-                        <outlet property="currentTemperatureLabel" destination="i0Y-Yh-vV1" id="npe-v9-dWK"/>
-                        <outlet property="maxTemperatureLabel" destination="L6B-Zw-CDW" id="gLL-3N-5PG"/>
-                        <outlet property="minTemperatureLabel" destination="fH8-w3-jan" id="Fq6-vy-yZq"/>
-                        <outlet property="moreCurrentDayTemperatureDetailsLabel" destination="wQ5-4T-AZp" id="eTI-6k-ZS0"/>
-                        <outlet property="tableView" destination="g9t-BZ-KII" id="PAF-h2-JpC"/>
-                        <outlet property="temperatureLabel" destination="tNo-VM-3nc" id="Xv1-d2-7lt"/>
-                        <outlet property="weatherDescriptionLabel" destination="bQp-Bb-7S7" id="Vcs-bw-5ZH"/>
-                        <outlet property="weatherImage" destination="9KX-cb-VYx" id="4Yp-x1-nWr"/>
+                        <outlet property="cityLabel" destination="rga-O4-X4M" id="oPh-ZW-jcl"/>
+                        <outlet property="currentTemperatureLabel" destination="i0Y-Yh-vV1" id="mtC-bY-20w"/>
+                        <outlet property="maxTemperatureLabel" destination="4Ur-Ga-vcn" id="cCd-Ui-PdU"/>
+                        <outlet property="minTemperatureLabel" destination="fH8-w3-jan" id="u8S-kj-m9h"/>
+                        <outlet property="moreCurrentDayTemperatureDetailsLabel" destination="wQ5-4T-AZp" id="V3W-0W-Ntd"/>
+                        <outlet property="tableView" destination="g9t-BZ-KII" id="WkS-Es-HY4"/>
+                        <outlet property="temperatureLabel" destination="tNo-VM-3nc" id="maF-qo-C8S"/>
+                        <outlet property="weatherDescriptionLabel" destination="bQp-Bb-7S7" id="gR3-oF-Ldg"/>
+                        <outlet property="weatherImage" destination="9KX-cb-VYx" id="EKZ-cU-f3S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -29,11 +29,12 @@ class WeatherPresenter{
     let userDefaultService : UserDefaultsProtocol
     var backgroundColor = "", weatherImage = "", error = ""
     weak fileprivate var view : WeatherView?
-    var fiveDayForecast : [Forecast]?
+    var fiveDaysForecast : [Forecast]?
 
     
     
     init(view : WeatherView, locationService : LocationService, weatherService: WeatherServiceProtocol, userDefaultService : UserDefaultsProtocol) {
+        self.view = view
         self.locationService = locationService
         self.weatherService = weatherService
         self.userDefaultService = userDefaultService
@@ -60,7 +61,7 @@ class WeatherPresenter{
     
     
     func configureCell(cell : WeatherCellView, row: Int){
-        let dayForecast = fiveDayForecast?[row]
+        let dayForecast = fiveDaysForecast?[row]
         let weatherImage = getWeatherType(dayForecast?.weather?[0].main?.lowercased())
         let cellDay = getDayOfTheWeek(intDate: dayForecast?.dt ?? 0)
         cell.displayWeatherType(image: weatherImage.rawValue)
@@ -118,9 +119,10 @@ extension WeatherPresenter : LocationServiceDelegate{
         weatherService.getCurrentDayWeather(lat: lat, lng: lng) {[weak self] (result: Result<Forecast , APIError> ) in
             switch result{
                 case .success(let forecast) :
-                    self?.view?.didUpdateCurrentForecast(currentDayForecast: forecast)
+                    
                     let weatherMain = forecast.weather?[0].main?.lowercased()
                     self?.weatherType = self?.getWeatherType(weatherMain) ?? .rainy
+                    self?.view?.didUpdateCurrentForecast(currentDayForecast: forecast)
                 case .failure(let error) :
                     self?.error = error.localizedDescription
 
@@ -131,7 +133,7 @@ extension WeatherPresenter : LocationServiceDelegate{
         weatherService.getFivedaysWeather(lat: lat, lng: lat) { [weak self] (result: Result<ForecastList , APIError> )  in
             switch result{
                 case .success(let forecasts) :
-                    let forecastsAtMidday = forecasts.list.filter { (forecast) -> Bool in
+                    self?.fiveDaysForecast = forecasts.list.filter { (forecast) -> Bool in
                         // choosing to display the weather condition at 6am
                         (forecast.dateString?.contains("06:00:00") ?? false)
                     }

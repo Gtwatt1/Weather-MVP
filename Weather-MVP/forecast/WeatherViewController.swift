@@ -23,11 +23,15 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var weatherDescriptionLabel : UILabel!
     @IBOutlet weak var weatherImage : UIImageView!
     
-    let presenter = WeatherPresenter(locationService: LocationService(), weatherService: WeatherService(), userDefaultService: UserDefaultService())
+    
+    var presenter : WeatherPresenter!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        presenter = WeatherPresenter(view: self, locationService: LocationService(), weatherService: WeatherService(), userDefaultService: UserDefaultService())
+        presenter.viewDidLoad()
+        let weatherDataSource = WeatherDataSource(weatherPresenter: presenter)
+        weatherDataSource.configureTableView(tableView : tableView)
     }
    
 
@@ -36,24 +40,33 @@ class WeatherViewController: UIViewController {
 
 extension WeatherViewController : WeatherView{
     func didUpdateCurrentForecast(currentDayForecast : Forecast) {
-        cityLabel.text = currentDayForecast.name
-        weatherDescriptionLabel.text = currentDayForecast.weather?[0].weatherDescription?.capitalized
-        temperatureLabel.text = "\( currentDayForecast.main?.temp ?? 0)º"
-        minTemperatureLabel.text = "\( currentDayForecast.main?.tempMin ?? 0)º"
-        maxTemperatureLabel.text = "\( currentDayForecast.main?.tempMax ?? 0 )º"
-        currentTemperatureLabel.text = "\( currentDayForecast.main?.temp ?? 0)º"
-        weatherImage.image = UIImage(named : presenter.weatherImage)
-        let backgroundColor = UIColor.hexStringToUIColor(hex: presenter.backgroundColor)
-            tableView.backgroundColor =  backgroundColor
-        moreCurrentDayTemperatureDetailsLabel.addBackground(color :  backgroundColor)
-        temperatureLabel.fadeIn()
-        weatherDescriptionLabel.fadeIn()
-        cityLabel.fadeIn()
+        DispatchQueue.main.async {[weak self] in
+          
+            self?.cityLabel.text = currentDayForecast.name
+            self?.weatherDescriptionLabel.text = currentDayForecast.weather?[0].weatherDescription?.capitalized
+            self?.temperatureLabel.text = "\( currentDayForecast.main?.temp ?? 0)º"
+            self?.minTemperatureLabel.text = "\( currentDayForecast.main?.tempMin ?? 0)º"
+            self?.maxTemperatureLabel.text = "\( currentDayForecast.main?.tempMax ?? 0 )º"
+            self?.currentTemperatureLabel.text = "\( currentDayForecast.main?.temp ?? 0)º"
+            if let weatherImage = self?.presenter.weatherImage{
+                self?.weatherImage.image = UIImage(named : weatherImage)
+            }
+            if let backgroundColor = self?.presenter.backgroundColor{
+                let backgroundColor = UIColor.hexStringToUIColor(hex: backgroundColor)
+                self?.tableView.backgroundColor =  backgroundColor
+                self?.moreCurrentDayTemperatureDetailsLabel.addBackground(color :  backgroundColor)
+            }
                 
+            self?.temperatureLabel.fadeIn()
+            self?.weatherDescriptionLabel.fadeIn()
+            self?.cityLabel.fadeIn()
+        }
     }
     
     func didUpdateFiveDaysForecast() {
-        tableView.reloadData()
+        DispatchQueue.main.async {[weak self] in
+            self?.tableView.reloadData()
+        }
     }
     
     func didUpdateWithError() {
@@ -72,3 +85,7 @@ extension WeatherViewController : WeatherView{
     
     
 }
+
+
+
+
