@@ -28,7 +28,7 @@ class LocationService : NSObject{
     }
     
     func startLocationRequest(){
-        locationManager.startUpdatingLocation()
+        locationManager.requestLocation()
     }
 }
 
