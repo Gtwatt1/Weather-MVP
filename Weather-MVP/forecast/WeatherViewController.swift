@@ -87,6 +87,10 @@ extension WeatherViewController : WeatherView{
     }
     
     
+    @IBAction func changeTheme(_ sender : UIButton){
+           presenter?.changeTheme()
+       }
+    
 }
 
 

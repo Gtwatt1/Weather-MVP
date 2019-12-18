@@ -43,6 +43,7 @@ class WeatherPresenter{
     
     
     func viewDidLoad(){
+        theme = userDefaultService.getTheme()
         requestLocationService()
     }
     
@@ -56,6 +57,16 @@ class WeatherPresenter{
     var weatherType = WeatherType.cloudy{
         didSet{
             setBackgroundView()
+        }
+    }
+    
+    func changeTheme(){
+        if let theme = theme{
+            if  theme == .forest{
+                self.theme = .sea
+            }else{
+                self.theme = .forest
+            }
         }
     }
     
