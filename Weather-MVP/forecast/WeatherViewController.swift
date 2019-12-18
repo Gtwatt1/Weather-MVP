@@ -10,6 +10,8 @@ import UIKit
 
 class WeatherViewController: UIViewController {
 
+    var weatherDataSource : WeatherDataSource?
+
     @IBOutlet weak var tableView : UITableView!
     @IBOutlet weak var temperatureLabel : UILabel!
     @IBOutlet weak var cityLabel : UILabel!
@@ -29,9 +31,10 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         
         presenter = WeatherPresenter(view: self, locationService: LocationService(), weatherService: WeatherService(), userDefaultService: UserDefaultService())
+        weatherDataSource = WeatherDataSource(weatherPresenter: presenter)
+        weatherDataSource?.configureTableView(tableView : tableView)
         presenter.viewDidLoad()
-        let weatherDataSource = WeatherDataSource(weatherPresenter: presenter)
-        weatherDataSource.configureTableView(tableView : tableView)
+
     }
    
 
